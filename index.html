@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="send-email.php"> 
+   <link rel="stylesheet" href="process-form.php">
+   <title>Jilani Shipping international </title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Jilani Shipping international</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Welcome to Our Export & Import Services</h2>
+            <p>Bridging global markets for your business needs.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We specialize in facilitating international trade for your products. With a focus on reliability and efficiency, we help businesses expand their market reach globally.Established in 1990, Jilani Shipping International has been a leading force in the global shipping and logistics industry for over three decades. With a rich heritage and a commitment to excellence, we have consistently delivered top-notch shipping solutions to clients around the world.
+
+                Our journey began with a vision to provide reliable and efficient shipping services, and over the years, we have grown into a trusted partner for businesses of all sizes. Our extensive experience and industry expertise enable us to offer a comprehensive range of services, including international freight forwarding, logistics management, and supply chain solutions.
+                
+                Why Choose Jilani Shipping International?
+                
+                Experience: With over 30 years in the industry, our team brings unparalleled knowledge and expertise to every shipment, ensuring your goods are handled with the utmost care and efficiency.
+                Global Reach: We have established a vast network of partners and agents worldwide, allowing us to provide seamless shipping solutions to and from virtually any corner of the globe.
+                Customer-Centric Approach: At Jilani Shipping International, we prioritize your needs and work closely with you to tailor our services to meet your specific requirements. Our dedicated customer support team is always available to assist you at every step of the process.
+                Innovative Solutions: We leverage the latest technology and industry best practices to optimize our shipping processes, enhance tracking capabilities, and improve overall efficiency.
+                Our commitment to quality, reliability, and customer satisfaction has earned us the trust of numerous clients across various industries. Whether you need to transport goods across continents or manage complex logistics operations, Jilani Shipping International is your trusted partner for all your shipping needs.
+                
+                Thank you for choosing Jilani Shipping International. We look forward to continuing our journey with you and delivering excellence in every shipment.
+                
+                
+                
+                
+                
+                </p>
+        </div>
+    </section>
+
+  
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="process-form.php">
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .feedback {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Contact Us</h1>
+        <form id="contact-form" method="POST" action="https://formspree.io/f/xwpebeor">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <br>
+            <button type="submit">Send</button>
+            <div id="feedback" class="feedback"></div>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var form = event.target;
+            var feedback = document.getElementById('feedback');
+
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    feedback.textContent = 'Thank you for your message!';
+                    feedback.style.color = 'green';
+                    form.reset(); // Reset the form after successful submission
+                } else {
+                    feedback.textContent = 'There was a problem submitting your message.';
+                    feedback.style.color = 'red';
+                }
+            })
+            .catch(() => {
+                feedback.textContent = 'There was a problem submitting your message.';
+                feedback.style.color = 'red';
+            });
+        });
+    </script>
+</body>
+</html>
